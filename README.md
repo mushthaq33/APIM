@@ -1,4 +1,4 @@
-# APIM
+### APIM Distribution Pack
 This script will do the following tasks,
 
     Extract the newly built pack to a target directory.
