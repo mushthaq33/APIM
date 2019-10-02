@@ -18,17 +18,17 @@ read carbonPath
 #Extract the distribution into the target directory
 unzip -d $targetPath $sourcePath
 
-#Rename the existing publisher-new app
-mv $targetPath/wso2am-3.0.0-SNAPSHOT/repository/deployment/server/jaggeryapps/publisher-new $targetPath/wso2am-3.0.0-SNAPSHOT/repository/deployment/server/jaggeryapps/publisher-new-back
+#Rename the existing publisher app
+mv $targetPath/wso2am-3.0.0-SNAPSHOT/repository/deployment/server/jaggeryapps/publisher $targetPath/wso2am-3.0.0-SNAPSHOT/repository/deployment/server/jaggeryapps/publisher-back
 
-#Rename the existing store-new app
-mv $targetPath/wso2am-3.0.0-SNAPSHOT/repository/deployment/server/jaggeryapps/store-new $targetPath/wso2am-3.0.0-SNAPSHOT/repository/deployment/server/jaggeryapps/store-new-back
+#Rename the existing devportal app
+mv $targetPath/wso2am-3.0.0-SNAPSHOT/repository/deployment/server/jaggeryapps/devportal $targetPath/wso2am-3.0.0-SNAPSHOT/repository/deployment/server/jaggeryapps/devportal-back
 
-#Create a symlink for the publisher-new app
-ln -s $carbonPath/features/apimgt/org.wso2.carbon.apimgt.publisher.feature/src/main/resources/publisher-new $targetPath/wso2am-3.0.0-SNAPSHOT/repository/deployment/server/jaggeryapps
+#Create a symlink for the publisher app
+ln -s $carbonPath/features/apimgt/org.wso2.carbon.apimgt.publisher.feature/src/main/resources/publisher $targetPath/wso2am-3.0.0-SNAPSHOT/repository/deployment/server/jaggeryapps
 
-#Create a symlink for the store-new app
-ln -s $carbonPath/features/apimgt/org.wso2.carbon.apimgt.store.feature/src/main/resources/store-new $targetPath/wso2am-3.0.0-SNAPSHOT/repository/deployment/server/jaggeryapps
+#Create a symlink for the devportal app
+ln -s $carbonPath/features/apimgt/org.wso2.carbon.apimgt.store.feature/src/main/resources/devportal $targetPath/wso2am-3.0.0-SNAPSHOT/repository/deployment/server/jaggeryapps
 
 
 echo "Distribution is ready to use at $targetPath/wso2am-3.0.0-SNAPSHOT/bin"
