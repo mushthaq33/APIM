@@ -3,6 +3,7 @@ var request = require('sync-request');
 
 var closedUrl = "https://api.github.com/search/issues?q=repo:wso2/product-apim+type:issue+state:closed+label%3A%22API-M+4.0.0%22+closed%3A%3E";
 var openedUrl = "https://api.github.com/search/issues?q=repo:wso2/product-apim+type:issue+label%3A%22API-M+4.0.0%22+created%3A%3E";
+var openedTotalUrl = "https://api.github.com/search/issues?q=repo:wso2/product-apim+type:issue+state:open+label%3A%22API-M+4.0.0%22";
 var closedUrlMI = "https://api.github.com/search/issues?q=repo:wso2/micro-integrator+state:closed+label%3A%224.0.0%22+closed%3A%3E";
 var openedUrlMI = "https://api.github.com/search/issues?q=repo:wso2/micro-integrator+type:issue+label%3A%224.0.0%22+created%3A%3E";
 var closedUrlIS = "https://api.github.com/search/issues?q=repo:wso2/integration-studio+state:closed+label%3A%228.0.0%22+closed%3A%3E";
@@ -50,6 +51,9 @@ function callGitOpenedGet(url, product) {
     var totalCount = JSON.parse(res.getBody('utf8')).total_count;
     
     textMsg = textMsg + product + "\n";
+    if (product == "----API Manager----") {
+        callGitTotalGet(openedTotalUrl);
+    }
     if (totalCount != null) {
         textMsg = textMsg + "Number of GIT issues opened on " + yesterday + " - " + totalCount + "\n";
     } else {
@@ -71,6 +75,16 @@ function callGitClosedGet(url) {
     var totalCount = JSON.parse(res.getBody('utf8')).total_count;
     if (totalCount != null) {
         textMsg = textMsg + "Number of GIT issues resolved on " + yesterday + " - " + totalCount + "\n\n";
+    } else {
+        textMsg = "No closed issues on " + yesterday + "\n\n";
+    }
+}
+
+function callGitTotalGet(url) {
+    var res = request('GET', url, optionsGet);
+    var totalCount = JSON.parse(res.getBody('utf8')).total_count;
+    if (totalCount != null) {
+        textMsg = textMsg + "Total Number of GIT issues open  - " + totalCount + "\n";
     } else {
         textMsg = "No closed issues on " + yesterday + "\n\n";
     }
