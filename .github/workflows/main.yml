@@ -1,10 +1,8 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [ $default-branch ]
-  pull_request:
-    branches: [ $default-branch ]
+  schedule:
+  - cron: "43 20 * * *"
 
 jobs:
   build:
