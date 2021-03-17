@@ -2,27 +2,23 @@ name: Run GIT Issue Alert
 
 on:
   schedule:
-  - cron: "15 16 * * *"
+  - cron: "00 02 * * *"
+  workflow_dispatch:
+    branches:
+      - master
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [15.x]
-
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 15.x
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
-      run: | 
-        npm install sync-request
-        npm run build --if-present
-        npm test
-      env:
-        CI: true
+        node-version: 15.x
+    - name: npm install sync-request
+      run: npm install sync-request
+    - name: run the script
+      run: node gitIssueScript.js
