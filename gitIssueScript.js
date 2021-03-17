@@ -84,7 +84,7 @@ function callGitTotalGet(url) {
     var res = request('GET', url, optionsGet);
     var totalCount = JSON.parse(res.getBody('utf8')).total_count;
     if (totalCount != null) {
-        textMsg = textMsg + "Total Number of GIT issues open  - " + totalCount + "\n";
+        textMsg = textMsg + "Total Number of open GIT issues - " + totalCount + "\n";
     } else {
         textMsg = "No closed issues on " + yesterday + "\n\n";
     }
