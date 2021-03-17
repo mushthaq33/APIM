@@ -2,7 +2,10 @@ name: Run GIT Issue Alert
 
 on:
   schedule:
-  - cron: "44 16 * * *"
+  - cron: "0 17 * * *"
+  workflow_dispatch:
+    branches:
+      - master
 
 jobs:
   build:
