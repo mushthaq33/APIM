@@ -2,7 +2,7 @@ name: Run GIT Issue Alert
 
 on:
   schedule:
-  - cron: "11 16 * * *"
+  - cron: "15 16 * * *"
 
 jobs:
   build:
