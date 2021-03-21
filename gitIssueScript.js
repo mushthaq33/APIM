@@ -96,6 +96,6 @@ function postWebhook() {
     var res = request('POST', webhookUrl, {
         json: {text: textMsg},
     });
-    var responseMsg = JSON.parse(res.getBody('utf8'));
+    var responseMsg = res.getBody('utf8');
     console.log("=======Response Log======== " + responseMsg);
 }
