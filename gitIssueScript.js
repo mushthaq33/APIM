@@ -91,14 +91,14 @@ function callGitTotalGet(url) {
 }
 
 function postWebhook() {
-    //var webhookUrl = 'https://chat.googleapis.com/v1/spaces/AAAAdxwFenw/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=oCHPaF32lRjxpMmTRVnogbVCC6Y1YAi6E6MAg7Zm0Dw%3D';
-    var webhookUrl = 'https://chat.googleapis.com/v1/spaces/AAAA7KUbG2g/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=VSHdFhA8DfkarEjT9EfAR-nQEwgKWNcVp9AP3eSd5UU%3D';
+    var webhookUrl = 'https://chat.googleapis.com/v1/spaces/AAAAdxwFenw/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=oCHPaF32lRjxpMmTRVnogbVCC6Y1YAi6E6MAg7Zm0Dw%3D';
+    //var webhookUrl = 'https://chat.googleapis.com/v1/spaces/AAAA7KUbG2g/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=VSHdFhA8DfkarEjT9EfAR-nQEwgKWNcVp9AP3eSd5UU%3D';
     var res = request('POST', webhookUrl, {
         json: {
                 text: textMsg, 
-                thread: {
-                     name: "spaces/AAAA7KUbG2g/threads/XqPVUDm0UAI"
-                }
+                /*thread: {
+                     name: "spaces/AAAAdxwFenw/threads/XqPVUDm0UAI"
+                }*/
               },
     });
     var responseMsg = res.getBody('utf8');
