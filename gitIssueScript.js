@@ -96,9 +96,9 @@ function postWebhook() {
     var res = request('POST', webhookUrl, {
         json: {
                 text: textMsg, 
-                /*thread: {
-                     name: "spaces/AAAAdxwFenw/threads/XqPVUDm0UAI"
-                }*/
+                thread: {
+                     name: "spaces/AAAAdxwFenw/threads/5mSDiGrh6n0"
+                }
               },
     });
     var responseMsg = res.getBody('utf8');
