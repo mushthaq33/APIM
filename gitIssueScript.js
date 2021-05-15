@@ -3,7 +3,7 @@ var request = require('sync-request');
 
 var today = new Date();
 var lastWeekStartDay = new Date();
-lastWeekStartDay.setDate(today.getDate() - 8);
+lastWeekStartDay.setDate(today.getDate() - 7);
 var lastWeekEndDay = new Date();
 lastWeekEndDay.setDate(today.getDate() - 1);
 var lastWeekStartDayStr = lastWeekStartDay.toISOString().slice(0,10);
@@ -44,7 +44,7 @@ var optionsGet = {
     }
 };
 
-function callGit(product) {
+function getIssueStats(product) {
     var txtOutput = product.title + "\n";
     var totalIssues = getCountFromGit(product.totalUrl);
     var openIssues = getCountFromGit(product.openedUrl);
@@ -61,8 +61,8 @@ function getCountFromGit(url) {
     return totalCount;
 }
 
-function postWebhook() {
-    var webhookUrl = 'https://chat.googleapis.com/v1/spaces/AAAAdxwFenw/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=oCHPaF32lRjxpMmTRVnogbVCC6Y1YAi6E6MAg7Zm0Dw%3D';
+function postWebhook(textMsg) {
+    var webhookUrl = 'https://chat.googleapis.com/v1/spaces/AAAAdxwFenw/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=3h2Wv7IOFE97jFk4mpCMrcJnfn2Sq1jpvic9yyPzcZE%3D';
     //var webhookUrl = 'https://chat.googleapis.com/v1/spaces/AAAA7KUbG2g/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=VSHdFhA8DfkarEjT9EfAR-nQEwgKWNcVp9AP3eSd5UU%3D';
     var res = request('POST', webhookUrl, {
         json: {
@@ -74,8 +74,8 @@ function postWebhook() {
 }
 
 var textMsg = "*GIT issue status during last week (" + lastWeekStartDayStr + " - " + lastWeekEndDayStr + ")*\n";
-textMsg = textMsg + callGit(productAPIM);
-textMsg = textMsg + callGit(productMI);
-textMsg = textMsg + callGit(productIntStudio);
+textMsg = textMsg + getIssueStats(productAPIM);
+textMsg = textMsg + getIssueStats(productMI);
+textMsg = textMsg + getIssueStats(productIntStudio);
 console.log("=======Final Log======== " + textMsg);
-postWebhook();
+postWebhook(textMsg);
