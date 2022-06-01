@@ -14,6 +14,8 @@ try {
   }
   
   console.log(`The latest label added: ${latestLabel}`);
+  const arrPay = JSON.stringify(labelsJsonArr, undefined, 2)
+  console.log(`The latest label added: ${arrPay}`);
   if (actionTrigerred == "opened") {
     if (latestLabel == "Priority/Critical(P1)") {
       console.log(`A priority level critical (P1) issue has been opened. Please attend immediately!!!\n URL: ${issueUrl}`);
