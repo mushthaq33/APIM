@@ -1,5 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
+const https = require('https');
+var request = require('sync-request');
 
 try {
   // Get the JSON webhook payload for the event that triggered the workflow
