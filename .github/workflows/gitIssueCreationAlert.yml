@@ -1,4 +1,4 @@
-name: Run GIT Issue Alert
+name: Run GIT Internal Issue Alert
 
 on:
   issues:
