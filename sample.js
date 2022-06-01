@@ -7,7 +7,12 @@ try {
   const actionTrigerred = payload.action
   const issueUrl = payload.issue.html_url
   const labelsJsonArr = payload.issue.labels
-  const latestLabel = labelsJsonArr[labelsJsonArr.length - 1].name
+  var latestLabel = ""
+  
+  if (labelsJsonArr.length > 0) {
+    latestLabel = labelsJsonArr[labelsJsonArr.length - 1].name
+  }
+  
   console.log(`The latest label added: ${latestLabel}`);
   if (actionTrigerred == "opened") {
     if (latestLabel == "Priority/Critical(P1)") {
