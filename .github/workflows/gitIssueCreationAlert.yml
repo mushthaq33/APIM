@@ -22,4 +22,4 @@ jobs:
     - name: Install actions github
       run: npm install @actions/github
     - name: run the script
-      run: node gitIssueScript.js
+      run: node sample.js
