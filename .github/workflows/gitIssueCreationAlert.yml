@@ -17,5 +17,9 @@ jobs:
         node-version: 15.x
     - name: npm install sync-request
       run: npm install sync-request
+    - name: Install actions core
+      run: npm install @actions/core
+    - name: Install actions github
+      run: npm install @actions/github
     - name: run the script
       run: node gitIssueScript.js
