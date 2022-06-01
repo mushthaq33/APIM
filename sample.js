@@ -11,19 +11,19 @@ try {
   console.log(`The latest label added: ${latestLabel}`);
   if (actionTrigerred == "opened") {
     if (latestLabel == "Priority/Critical(P1)") {
-      console.log(`A priority level critical (P1) issue has been opened. Please attend immediately!!!`);
+      console.log(`A priority level critical (P1) issue has been opened. Please attend immediately!!!\n URL: ${issueUrl}`);
     } else if (latestLabel == "Priority/High(P2)")  {
-      console.log(`A priority level high (P2) issue has been opened. Please attend!!!`);
+      console.log(`A priority level high (P2) issue has been opened. Please attend!!!\n URL: ${issueUrl}`);
     } else if (latestLabel == "Priority/Medium(P3)") {
-      console.log(`A priority level medium (P3) issue has been opened. Please attend!!!`);
+      console.log(`A priority level medium (P3) issue has been opened. Please attend!!!\n URL: ${issueUrl}`);
     }
   } else if (actionTrigerred == "labeled") {
     if (latestLabel == "Priority/Critical(P1)") {
-      console.log(`An issue has been labeled as priority level critical (P1). Please attend immediately!!!`);
+      console.log(`An issue has been labeled as priority level critical (P1). Please attend immediately!!!\n URL: ${issueUrl}`);
     } else if (latestLabel == "Priority/High(P2)")  {
-      console.log(`An issue has been labeled as priority level hight (P2). Please attend!!!`);
+      console.log(`An issue has been labeled as priority level hight (P2). Please attend!!!\n URL: ${issueUrl}`);
     } else if (latestLabel == "Priority/Medium(P3)") {
-      console.log(`An issue has been labeled as priority level medium (P3). Please attend!!!`);
+      console.log(`An issue has been labeled as priority level medium (P3). Please attend!!!\n URL: ${issueUrl}`);
     }
   }
   
