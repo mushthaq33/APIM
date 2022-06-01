@@ -2,7 +2,7 @@ name: Run GIT Internal Issue Alert
 
 on:
   issues:
-    types: [opened, labeled]
+    types: [labeled]
 
 jobs:
   build:
