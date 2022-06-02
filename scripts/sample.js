@@ -14,6 +14,7 @@ try {
   var product = ""
   
   console.log(`The latest label added: ${labelName}`);
+  console.log(`The labels: ${labelArr}`);
   
   if (labelArr.includes("product/apim")) {
     product = "APIM"
