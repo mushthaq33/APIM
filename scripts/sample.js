@@ -17,13 +17,19 @@ try {
   console.log(`The labels: ${labelArr}`);
   
   function isLabelExist(checkLabel) {
-    $.each(labelArr , function (key, value) {
+    labelArr.filter(value =>
+      value.name == checkLabel
+    ).length > 0
+      ? return true
+      : return false;
+
+    /*$.each(labelArr , function (key, value) {
       if (value.name == checkLabel) {
         return true
       } else {
         return false
       }
-    });
+    });*/
   }
   
   if (isLabelExist("product/apim")) {
