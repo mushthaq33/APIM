@@ -17,11 +17,9 @@ try {
   console.log(`The labels: ${labelArr}`);
   
   function isLabelExist(checkLabel) {
-    labelArr.filter(value =>
-      value.name == checkLabel
-    ).length > 0
-      ? return true
-      : return false;
+    return labelArr.some(function(obj) {
+      return obj.name === checkLabel;
+    }); 
 
     /*$.each(labelArr , function (key, value) {
       if (value.name == checkLabel) {
@@ -40,7 +38,7 @@ try {
     product = "EI"
   }
   
-  if (labelName == "Priority/Critical(P1)") {
+  /*if (labelName == "Priority/Critical(P1)") {
     console.log(`An issue has been labeled as priority level critical (P1). Please attend immediately!!!\n URL: ${issueUrl}`);
     text = "An " + product + " issue has been labeled as priority level critical (P1). Please attend immediately!!!\n URL: " + issueUrl
   } else if (labelName == "Priority/High(P2)")  {
@@ -49,7 +47,7 @@ try {
   } else if (labelName == "Priority/Medium(P3)") {
     console.log(`An issue has been labeled as priority level medium (P3). Please attend!!!\n URL: ${issueUrl}`);
     text = "An " + product + " issue has been labeled as priority level medium (P3). Please attend!!!\n URL: " + issueUrl
-  }
+  }*/
   
   function postWebhook(textMsg) {
     var webhookUrl = 'https://chat.googleapis.com/v1/spaces/AAAAzwUSt7Q/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=cQDo2C7S5sIezfKpxGiKHBayjK9VOYj3Ae0ohyY3OxE%3D';
