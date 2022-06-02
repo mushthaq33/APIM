@@ -23,7 +23,7 @@ try {
       } else {
         return false
       }
-    }
+    });
   }
   
   if (isLabelExist("product/apim")) {
