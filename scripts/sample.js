@@ -16,9 +16,21 @@ try {
   console.log(`The latest label added: ${labelName}`);
   console.log(`The labels: ${labelArr}`);
   
-  if (labelArr.includes("product/apim")) {
+  function isLabelExist(checkLabel) {
+    $.each(labelArr , function (key, value) {
+      if (value.name == checkLabel) {
+        return true
+      } else {
+        return false
+      }
+    }
+  }
+  
+  if (isLabelExist("product/apim")) {
+    console.log(`The product is APIM`);  
     product = "APIM"
-  } else if (labelArr.includes("product/ei")) {
+  } else if (isLabelExist("product/ei")) {
+    console.log(`The product is EI`);  
     product = "EI"
   }
   
